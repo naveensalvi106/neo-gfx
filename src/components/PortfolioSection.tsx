@@ -19,10 +19,15 @@ const PortfolioSection = () => {
   return (
     <section id="work" className="py-20 md:py-28 px-4">
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm font-semibold text-primary text-center mb-2">Ready to see our work?</p>
-        <p className="text-center text-muted-foreground max-w-xl mx-auto text-sm mb-8">
+        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground text-center leading-tight">
+          Ready to see our <span className="text-primary">work?</span>
+        </h2>
+        <p className="text-center text-muted-foreground max-w-xl mx-auto text-sm mt-4 mb-2">
           Of course, with over 4100 thumbnails created, we can't showcase them all, but here are a few we've created recently:
         </p>
+        <div className="flex justify-center mt-2 mb-8">
+          <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+        </div>
 
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
@@ -30,21 +35,24 @@ const PortfolioSection = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all border ${
                 activeCategory === cat
-                  ? "bg-foreground text-background"
-                  : "bg-secondary text-muted-foreground hover:text-foreground"
+                  ? "bg-foreground text-background border-foreground"
+                  : "bg-card text-foreground border-border hover:border-foreground/30"
               }`}
             >
               {cat}
             </button>
           ))}
+          <span className="px-5 py-2.5 rounded-full text-sm font-medium bg-card text-foreground border border-border">
+            +6 more
+          </span>
         </div>
 
         {/* Thumbnail Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {allThumbnails.map((thumb, i) => (
-            <div key={i} className="rounded-xl overflow-hidden group cursor-pointer">
+            <div key={i} className="rounded-2xl overflow-hidden group cursor-pointer">
               <img
                 src={thumb}
                 alt={`Portfolio thumbnail ${i + 1}`}
