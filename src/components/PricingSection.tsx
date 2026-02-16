@@ -1,69 +1,57 @@
-import { Check, ArrowRight } from "lucide-react";
-
-const plans = [
-  {
-    name: "Limitless",
-    popular: false,
-    features: [
-      "Unlimited thumbnail Requests",
-      "One request at a time",
-      "24 to 48 hour turnaround time",
-      "24/7 direct communication",
-    ],
-  },
-  {
-    name: "Limitless Plus",
-    popular: true,
-    features: [
-      "Unlimited thumbnail Requests",
-      "Two requests at a time",
-      "24 to 48 hour turnaround time",
-      "Auto Testing and Rehashing",
-    ],
-  },
-];
+import { ArrowRight, FileText, Clock } from "lucide-react";
 
 const PricingSection = () => {
   return (
     <section id="pricing" className="py-20 md:py-28 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-6">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`relative rounded-2xl border p-8 ${
-                plan.popular
-                  ? "border-primary bg-card shadow-xl shadow-primary/10"
-                  : "border-border bg-card"
-              }`}
-            >
-              {plan.popular && (
-                <span className="absolute -top-3 left-6 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
-                  Most Popular
-                </span>
-              )}
-              <h3 className="text-2xl font-bold text-foreground mb-6">{plan.name}</h3>
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm text-foreground">
-                    <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#contact"
-                className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold transition-all ${
-                  plan.popular
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl"
-                    : "bg-foreground text-background hover:opacity-90"
-                }`}
-              >
-                Get Started
-                <ArrowRight className="h-4 w-4" />
-              </a>
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Heading */}
+        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
+          And the best part?
+          <br />
+          Everything at a single monthly <span className="text-primary">subscription!</span>
+        </h2>
+        <div className="flex justify-center mt-3 mb-10">
+          <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+        </div>
+
+        {/* Cards Container with lavender bg */}
+        <div className="rounded-3xl bg-primary/10 p-6 md:p-10">
+          <div className="grid md:grid-cols-2 gap-5">
+            {/* No Long-Term Contracts */}
+            <div className="bg-card rounded-2xl p-7 text-left">
+              <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center mb-5">
+                <FileText className="h-5 w-5 text-muted-foreground" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">No Long-Term Contracts</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Agencies often tie you down with long contracts. With us, you can pause, cancel or adjust your plan anytime.
+              </p>
             </div>
-          ))}
+
+            {/* No Lack of Flexibility */}
+            <div className="bg-card rounded-2xl p-7 text-left">
+              <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center mb-5">
+                <Clock className="h-5 w-5 text-muted-foreground" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">No Lack of Flexibility</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                With us, you can get instant updates and changes with your subscription, no more wasting time on contract modifications.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-10">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all"
+          >
+            Start Getting Unlimited Thumbnails
+            <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          </a>
         </div>
       </div>
     </section>
