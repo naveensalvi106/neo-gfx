@@ -108,13 +108,11 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Thumbnail Carousel - 3 Rows */}
-      <div className="mt-8 relative">
-        <div className="overflow-hidden rounded-3xl mx-4 md:mx-12 lg:mx-20 bg-card/50 backdrop-blur-sm border border-border p-4 md:p-6 space-y-4">
-          <InfiniteRow images={row1} direction="left" duration={20} />
-          <InfiniteRow images={row2} direction="right" duration={20} />
-          <InfiniteRow images={row3} direction="left" duration={20} />
-        </div>
+      {/* Thumbnail Carousel - 3 Rows - Full Width */}
+      <div className="mt-8 space-y-4">
+        <InfiniteRow images={row1} direction="left" duration={20} />
+        <InfiniteRow images={row2} direction="right" duration={20} />
+        <InfiniteRow images={row3} direction="left" duration={20} />
       </div>
     </section>
   );
