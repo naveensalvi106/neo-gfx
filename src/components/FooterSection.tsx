@@ -1,5 +1,6 @@
-import logo from "@/assets/boostraft-logo.png";
 import { ArrowRight } from "lucide-react";
+
+const WHATSAPP_URL = "https://wa.me/919358935758";
 
 const FooterSection = () => {
   return (
@@ -9,10 +10,12 @@ const FooterSection = () => {
           Ready to Get Thumbnails That Actually Get Clicks?
         </h2>
         <p className="text-sm opacity-60 mb-8 max-w-lg mx-auto">
-          Join 62+ YouTubers who trust Boostraft for their thumbnail needs. Start today and see the difference.
+          Join 62+ YouTubers who trust Neo Thumbnail for their thumbnail needs. Start today and see the difference.
         </p>
         <a
-          href="#pricing"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl transition-all"
         >
           Get Started Now
@@ -20,8 +23,8 @@ const FooterSection = () => {
         </a>
 
         <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={logo} alt="Boostraft" className="h-5 brightness-0 invert" />
-          <p className="text-xs opacity-40">© 2025 Boostraft. All rights reserved.</p>
+          <span className="font-extrabold text-background text-sm tracking-tight">NEO THUMBNAIL</span>
+          <p className="text-xs opacity-40">© 2025 Neo Thumbnail. All rights reserved.</p>
         </div>
       </div>
     </footer>

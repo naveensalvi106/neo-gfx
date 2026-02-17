@@ -19,6 +19,8 @@ import row3Thumb5 from "@/assets/row3-thumb-5.avif";
 import row3Thumb6 from "@/assets/row3-thumb-6.avif";
 import row3Thumb7 from "@/assets/row3-thumb-7.avif";
 
+const WHATSAPP_URL = "https://wa.me/919358935758";
+
 const trustedBy = [
   { name: "Eternal Passenger", subs: "703K Subscribers" },
   { name: "TFC Basketball", subs: "14.2K Subscribers" },
@@ -72,7 +74,9 @@ const HeroSection = () => {
         </p>
         <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
           <a
-            href="#pricing"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all"
           >
             Start Now
