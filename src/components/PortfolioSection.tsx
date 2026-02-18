@@ -36,7 +36,7 @@ const categories = ["Business", "Celebrity", "Mystery", "Space", "Business Stori
 
 const categoryThumbnails: Record<string, string[]> = {
   "Business": [thumb6, thumb9, thumb8, thumb10, thumb19, thumb20, thumb15, thumb16, thumb23],
-  "Celebrity": [celeb1, celeb2, celeb3, celeb4, celeb5, celeb6, celeb7, celeb8, celeb9],
+  "Celebrity": [celeb9, celeb8, celeb7, celeb6, celeb5, celeb4, celeb3, celeb2, celeb1, thumb14, thumb17, thumb18],
   "Mystery": [thumb14, thumb17, thumb18, thumb21, thumb22, thumb6, thumb8, thumb9, thumb10],
   "Space": [thumb3, thumb5, thumb7, thumb11, thumb13, thumb15, thumb17, thumb19, thumb21],
   "Business Stories": [thumb2, thumb4, thumb12, thumb14, thumb16, thumb18, thumb20, thumb22, thumb23],
