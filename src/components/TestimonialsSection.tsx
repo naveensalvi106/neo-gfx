@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const testimonials = [
   {
@@ -44,17 +45,21 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <section id="testimonials" className="py-20 md:py-28 px-4 bg-card">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-sm font-semibold text-primary text-center mb-2">62+ YouTubers Trust Boostraft</p>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center tracking-tight mb-12">
+    <section id="testimonials" className="py-20 md:py-28 px-4 bg-card relative overflow-hidden">
+      {/* Ambient glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div ref={revealRef} className="max-w-6xl mx-auto relative z-10">
+        <p className="reveal text-sm font-semibold text-primary text-center mb-2">62+ YouTubers Trust Boostraft</p>
+        <h2 className="reveal text-3xl md:text-4xl font-extrabold text-center tracking-tight mb-12" style={{ transitionDelay: "0.1s" }}>
           From 50K to 12M+ subscribers, creators love our work
         </h2>
 
         {/* Marquee testimonials */}
         <div className="space-y-6 overflow-hidden">
-          {/* Row 1 */}
           <div className="overflow-hidden">
             <div className="flex gap-6 marquee">
               {[...testimonials.slice(0, 4), ...testimonials.slice(0, 4)].map((t, i) => (
@@ -62,7 +67,6 @@ const TestimonialsSection = () => {
               ))}
             </div>
           </div>
-          {/* Row 2 */}
           <div className="overflow-hidden">
             <div className="flex gap-6 marquee-reverse">
               {[...testimonials.slice(4), ...testimonials.slice(4)].map((t, i) => (
@@ -77,9 +81,9 @@ const TestimonialsSection = () => {
 };
 
 const TestimonialCard = ({ name, subs, text }: { name: string; subs: string; text: string }) => (
-  <div className="w-[380px] shrink-0 rounded-2xl border border-border bg-background p-6">
+  <div className="w-[380px] shrink-0 rounded-2xl border border-border bg-background p-6 card-3d hover:border-primary/20 transition-colors duration-300 group">
     <div className="flex items-center gap-3 mb-4">
-      <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-sm font-bold text-foreground">
+      <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-sm font-bold text-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
         {name.charAt(0)}
       </div>
       <div>

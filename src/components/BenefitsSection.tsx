@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Infinity, Users, RefreshCw, Trophy, TrendingUp, MessageSquare, MonitorCheck, ArrowRight } from "lucide-react";
+import { Infinity as InfinityIcon, Users, RefreshCw, Trophy, TrendingUp, MessageSquare, MonitorCheck, ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import heroThumb1 from "@/assets/hero-thumb-1.jpg";
 import heroThumb2 from "@/assets/hero-thumb-2.jpg";
 import heroThumb3 from "@/assets/hero-thumb-3.jpg";
@@ -110,21 +111,26 @@ const TrelloBoard = ({ hovered }: { hovered: boolean }) => {
   );
 };
 
+
 const BenefitsSection = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const revealRef = useScrollReveal();
 
   return (
-    <section id="benefits" className="py-20 md:py-28 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-center tracking-tight mb-4">
-          Well, at Boostraft, you get everything you need to win
+    <section id="benefits" className="py-20 md:py-28 px-4 relative">
+      {/* Ambient glow */}
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div ref={revealRef} className="max-w-6xl mx-auto relative z-10">
+        <h2 className="reveal text-3xl md:text-5xl font-extrabold text-center tracking-tight mb-4">
+          Well, at Boostraft, you get everything you need to <span className="text-gradient-premium">win</span>
         </h2>
 
         <div className="mt-14 space-y-6">
           {/* Row 1: Truly Unlimited - Full Width */}
-          <div className="rounded-2xl border border-border bg-card p-7 pb-0 overflow-hidden relative">
+          <div className="reveal rounded-2xl border border-border bg-card p-7 pb-0 overflow-hidden relative card-3d hover:border-primary/20 transition-colors duration-300">
             <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4">
-              <Infinity className="h-6 w-6 text-foreground" />
+              <InfinityIcon className="h-6 w-6 text-foreground" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">Truly Unlimited Thumbnail Requests</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-2xl">
@@ -152,7 +158,7 @@ const BenefitsSection = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Dedicated Expert Team */}
             <div
-              className="rounded-2xl border border-border bg-card p-7 overflow-hidden"
+              className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden card-3d hover:border-primary/20 transition-colors duration-300"
               onMouseEnter={() => setHoveredCard("team")}
               onMouseLeave={() => setHoveredCard(null)}
             >
@@ -205,7 +211,7 @@ const BenefitsSection = () => {
 
             {/* Right stack: CTR + Communication */}
             <div className="flex flex-col gap-6">
-              <div className="rounded-2xl border border-border bg-card p-7">
+              <div className="reveal rounded-2xl border border-border bg-card p-7 card-3d hover:border-primary/20 transition-colors duration-300">
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4">
                   <TrendingUp className="h-6 w-6 text-foreground" />
                 </div>
@@ -214,7 +220,7 @@ const BenefitsSection = () => {
                   Our clients have seen an average 6.8% boost in CTR with our psychology-driven thumbnails.
                 </p>
               </div>
-              <div className="rounded-2xl border border-border bg-card p-7">
+              <div className="reveal rounded-2xl border border-border bg-card p-7 card-3d hover:border-primary/20 transition-colors duration-300">
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4">
                   <MessageSquare className="h-6 w-6 text-foreground" />
                 </div>
@@ -230,7 +236,7 @@ const BenefitsSection = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Left stack */}
             <div className="flex flex-col gap-6">
-              <div className="rounded-2xl border border-border bg-card p-7">
+              <div className="reveal rounded-2xl border border-border bg-card p-7 card-3d hover:border-primary/20 transition-colors duration-300">
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4">
                   <RefreshCw className="h-6 w-6 text-foreground" />
                 </div>
@@ -239,7 +245,7 @@ const BenefitsSection = () => {
                   Our team of vigilant strategists constantly monitors your CTR and rehashes the thumbnails that aren't performing on autopilot, so you can focus on scaling.
                 </p>
               </div>
-              <div className="rounded-2xl border border-border bg-card p-7">
+              <div className="reveal rounded-2xl border border-border bg-card p-7 card-3d hover:border-primary/20 transition-colors duration-300">
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4">
                   <Trophy className="h-6 w-6 text-foreground" />
                 </div>
@@ -252,7 +258,7 @@ const BenefitsSection = () => {
 
             {/* Live Monitoring */}
             <div
-              className="rounded-2xl border border-border bg-card p-7 overflow-hidden"
+              className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden card-3d hover:border-primary/20 transition-colors duration-300"
               onMouseEnter={() => setHoveredCard("monitor")}
               onMouseLeave={() => setHoveredCard(null)}
             >
