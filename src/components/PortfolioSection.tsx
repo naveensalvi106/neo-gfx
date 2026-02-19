@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useTilt3D } from "@/hooks/useTilt3D";
 import thumb6 from "@/assets/thumb-6.png";
 import thumb8 from "@/assets/thumb-8.png";
 import thumb9 from "@/assets/thumb-9.png";
@@ -46,30 +48,34 @@ const categoryThumbnails: Record<string, string[]> = {
 const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState("Business");
   const thumbnails = categoryThumbnails[activeCategory] || categoryThumbnails["Business"];
+  const revealRef = useScrollReveal();
 
   return (
-    <section id="work" className="py-20 md:py-28 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground text-center leading-tight">
-          Ready to see our <span className="text-primary">work?</span>
+    <section id="work" className="py-20 md:py-28 px-4 relative">
+      {/* Ambient glow */}
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div ref={revealRef} className="max-w-6xl mx-auto relative z-10">
+        <h2 className="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-foreground text-center leading-tight">
+          Ready to see our <span className="text-gradient-premium">work?</span>
         </h2>
-        <p className="text-center text-muted-foreground max-w-xl mx-auto text-sm mt-4 mb-2">
+        <p className="reveal text-center text-muted-foreground max-w-xl mx-auto text-sm mt-4 mb-2" style={{ transitionDelay: "0.1s" }}>
           Of course, with over 4100 thumbnails created, we can't showcase them all, but here are a few we've created recently:
         </p>
         <div className="flex justify-center mt-2 mb-8">
-          <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+          <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse-glow" />
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="reveal flex flex-wrap justify-center gap-2 mb-10" style={{ transitionDelay: "0.2s" }}>
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all border ${
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
                 activeCategory === cat
-                  ? "bg-foreground text-background border-foreground"
-                  : "bg-card text-foreground border-border hover:border-foreground/30"
+                  ? "bg-foreground text-background border-foreground shadow-lg shadow-foreground/20 scale-105"
+                  : "bg-card text-foreground border-border hover:border-foreground/30 hover:shadow-md hover:scale-[1.02] active:scale-95"
               }`}
             >
               {cat}
@@ -80,20 +86,43 @@ const PortfolioSection = () => {
           </span>
         </div>
 
-        {/* Thumbnail Grid */}
+        {/* Thumbnail Grid with staggered 3D animation */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {thumbnails.map((thumb, i) => (
-            <div key={`${activeCategory}-${i}`} className="rounded-2xl overflow-hidden group cursor-pointer">
-              <img
-                src={thumb}
-                alt={`${activeCategory} thumbnail ${i + 1}`}
-                className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
+            <ThumbnailCard key={`${activeCategory}-${i}`} src={thumb} alt={`${activeCategory} thumbnail ${i + 1}`} index={i} />
           ))}
         </div>
       </div>
     </section>
+  );
+};
+
+const ThumbnailCard = ({ src, alt, index }: { src: string; alt: string; index: number }) => {
+  const tilt = useTilt3D(5);
+
+  return (
+    <div
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      className="rounded-2xl overflow-hidden group cursor-pointer card-3d"
+      style={{
+        transformStyle: "preserve-3d",
+        animation: `fade-in 0.5s ease-out ${index * 0.06}s both`,
+      }}
+    >
+      <div className="relative overflow-hidden rounded-2xl">
+        <img
+          src={src}
+          alt={alt}
+          className="w-full aspect-video object-cover transition-all duration-500 group-hover:scale-110"
+        />
+        {/* Hover overlay with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Shine effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+      </div>
+    </div>
   );
 };
 

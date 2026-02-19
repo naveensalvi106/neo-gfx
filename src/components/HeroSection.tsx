@@ -18,6 +18,7 @@ import row3Thumb4 from "@/assets/row3-thumb-4.avif";
 import row3Thumb5 from "@/assets/row3-thumb-5.avif";
 import row3Thumb6 from "@/assets/row3-thumb-6.avif";
 import row3Thumb7 from "@/assets/row3-thumb-7.avif";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const WHATSAPP_URL = "https://wa.me/919358935758";
 
@@ -38,7 +39,12 @@ const row2 = [row2Thumb1, row2Thumb2, row2Thumb3, row2Thumb4, row2Thumb5, row2Th
 const row3 = [row3Thumb1, row3Thumb2, row3Thumb3, row3Thumb4, row3Thumb5, row3Thumb6, row3Thumb7];
 
 const ThumbImg = ({ src }: { src: string }) => (
-  <img src={src} alt="YouTube thumbnail" className="h-32 md:h-40 rounded-xl object-cover shrink-0 aspect-video" />
+  <img
+    src={src}
+    alt="YouTube thumbnail"
+    className="h-32 md:h-40 rounded-xl object-cover shrink-0 aspect-video transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 hover:z-10"
+    style={{ transformStyle: "preserve-3d" }}
+  />
 );
 
 const InfiniteRow = ({ images, direction = "left", duration = 20 }: { images: string[]; direction?: "left" | "right"; duration?: number }) => {
@@ -57,49 +63,55 @@ const InfiniteRow = ({ images, direction = "left", duration = 20 }: { images: st
 };
 
 const HeroSection = () => {
+  const revealRef = useScrollReveal();
+
   return (
-    <section className="hero-gradient pt-32 pb-0 overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center px-4">
-        <p className="text-sm md:text-base text-muted-foreground italic mb-4">
+    <section className="hero-gradient pt-32 pb-0 overflow-hidden relative">
+      {/* Ambient glow orbs */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-40 right-1/4 w-72 h-72 bg-accent/8 rounded-full blur-[100px] pointer-events-none" />
+
+      <div ref={revealRef} className="max-w-4xl mx-auto text-center px-4 relative z-10">
+        <p className="reveal text-sm md:text-base text-muted-foreground italic mb-4" style={{ transitionDelay: "0.1s" }}>
           if they never click, they'll never watch it
         </p>
-        <h1 className="text-4xl md:text-6xl lg:text-[4rem] font-extrabold leading-[1.1] tracking-tight text-foreground">
+        <h1 className="reveal text-4xl md:text-6xl lg:text-[4rem] font-extrabold leading-[1.1] tracking-tight text-foreground" style={{ transitionDelay: "0.2s" }}>
           Get Unlimited YouTube Thumbnails
           <br />
-          That Actually Get Clicks
+          That Actually Get <span className="text-gradient-premium">Clicks</span>
         </h1>
-        <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="reveal mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed" style={{ transitionDelay: "0.3s" }}>
           Join 62+ successful YouTubers who've boosted their CTR by up to 6.8% with our psychology-based,
           unlimited thumbnails — all under one simple monthly subscription.
         </p>
-        <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
+        <div className="reveal mt-8 flex items-center justify-center gap-4 flex-wrap" style={{ transitionDelay: "0.4s" }}>
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all"
+            className="btn-premium inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300"
           >
             Start Now
             <ArrowRight className="h-4 w-4" />
           </a>
           <a
             href="#work"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline transition-all duration-300 hover:gap-3"
           >
             View Portfolio
-            <ArrowDown className="h-4 w-4" />
+            <ArrowDown className="h-4 w-4 animate-bounce" />
           </a>
         </div>
       </div>
 
       {/* Trusted By Marquee */}
-      <div className="mt-10 text-center">
+      <div className="mt-10 text-center relative z-10">
         <p className="text-xs font-medium text-muted-foreground tracking-wide uppercase mb-4">Trusted by:</p>
         <div className="overflow-hidden">
           <div className="flex marquee whitespace-nowrap">
             {[...trustedBy, ...trustedBy].map((client, i) => (
-              <div key={i} className="inline-flex items-center gap-2.5 mx-5 shrink-0">
-                <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground">
+              <div key={i} className="inline-flex items-center gap-2.5 mx-5 shrink-0 group">
+                <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
                   {client.name.charAt(0)}
                 </div>
                 <div className="text-left">
@@ -113,7 +125,10 @@ const HeroSection = () => {
       </div>
 
       {/* Thumbnail Carousel - 3 Rows - Full Width */}
-      <div className="mt-8 space-y-4">
+      <div className="mt-8 space-y-4 relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background/80 to-transparent z-10 pointer-events-none" />
         <InfiniteRow images={row1} direction="left" duration={20} />
         <InfiniteRow images={row2} direction="right" duration={20} />
         <InfiniteRow images={row3} direction="left" duration={20} />

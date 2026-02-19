@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const faqs = [
   {
@@ -30,32 +31,43 @@ const faqs = [
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const revealRef = useScrollReveal();
 
   return (
-    <section className="py-20 md:py-28 px-4">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center tracking-tight mb-12">
-          Frequently Asked Questions
+    <section className="py-20 md:py-28 px-4 relative">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div ref={revealRef} className="max-w-3xl mx-auto relative z-10">
+        <h2 className="reveal text-3xl md:text-4xl font-extrabold text-center tracking-tight mb-12">
+          Frequently Asked <span className="text-gradient-premium">Questions</span>
         </h2>
         <div className="space-y-3">
           {faqs.map((faq, i) => (
-            <div key={i} className="rounded-2xl border border-border bg-card overflow-hidden">
+            <div
+              key={i}
+              className="reveal rounded-2xl border border-border bg-card overflow-hidden card-3d hover:border-primary/20 transition-all duration-300"
+              style={{ transitionDelay: `${i * 0.05}s` }}
+            >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-5 text-left"
+                className="w-full flex items-center justify-between p-5 text-left group"
               >
-                <span className="text-sm font-semibold text-foreground pr-4">{faq.question}</span>
+                <span className="text-sm font-semibold text-foreground pr-4 group-hover:text-primary transition-colors duration-300">{faq.question}</span>
                 <ChevronDown
-                  className={`h-5 w-5 text-muted-foreground shrink-0 transition-transform ${
-                    openIndex === i ? "rotate-180" : ""
+                  className={`h-5 w-5 text-muted-foreground shrink-0 transition-all duration-300 ${
+                    openIndex === i ? "rotate-180 text-primary" : ""
                   }`}
                 />
               </button>
-              {openIndex === i && (
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-out ${
+                  openIndex === i ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
                 <div className="px-5 pb-5">
                   <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
