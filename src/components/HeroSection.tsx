@@ -39,12 +39,18 @@ const row2 = [row2Thumb1, row2Thumb2, row2Thumb3, row2Thumb4, row2Thumb5, row2Th
 const row3 = [row3Thumb1, row3Thumb2, row3Thumb3, row3Thumb4, row3Thumb5, row3Thumb6, row3Thumb7];
 
 const ThumbImg = ({ src }: { src: string }) => (
-  <img
-    src={src}
-    alt="YouTube thumbnail"
-    className="h-32 md:h-40 rounded-xl object-cover shrink-0 aspect-video transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 hover:z-10"
-    style={{ transformStyle: "preserve-3d" }}
-  />
+  <div className="relative group shrink-0">
+    <img
+      src={src}
+      alt="YouTube thumbnail"
+      className="h-32 md:h-40 rounded-xl object-cover aspect-video transition-all duration-500 group-hover:scale-110 group-hover:z-10"
+      style={{ transformStyle: "preserve-3d" }}
+    />
+    {/* 3D shadow on hover */}
+    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-xl shadow-primary/20 pointer-events-none" />
+    {/* Shine overlay */}
+    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
+  </div>
 );
 
 const InfiniteRow = ({ images, direction = "left", duration = 20 }: { images: string[]; direction?: "left" | "right"; duration?: number }) => {
@@ -68,10 +74,20 @@ const HeroSection = () => {
   return (
     <section className="hero-gradient pt-32 pb-0 overflow-hidden relative">
       {/* Ambient glow orbs */}
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-40 right-1/4 w-72 h-72 bg-accent/8 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none animate-breathe" />
+      <div className="absolute top-40 right-1/4 w-72 h-72 bg-accent/8 rounded-full blur-[100px] pointer-events-none animate-breathe" style={{ animationDelay: "2s" }} />
+      {/* Orbiting particle */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+        <div className="w-2 h-2 rounded-full bg-primary/30 animate-orbit" />
+      </div>
 
       <div ref={revealRef} className="max-w-4xl mx-auto text-center px-4 relative z-10">
+        {/* Badge */}
+        <div className="reveal inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-6 border border-primary/20">
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="text-xs font-semibold text-primary">Trusted by 62+ YouTubers</span>
+        </div>
+
         <p className="reveal text-sm md:text-base text-muted-foreground italic mb-4" style={{ transitionDelay: "0.1s" }}>
           if they never click, they'll never watch it
         </p>
@@ -89,7 +105,7 @@ const HeroSection = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-premium inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300"
+            className="btn-premium inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 animate-glow-ring"
           >
             Start Now
             <ArrowRight className="h-4 w-4" />
@@ -111,7 +127,7 @@ const HeroSection = () => {
           <div className="flex marquee whitespace-nowrap">
             {[...trustedBy, ...trustedBy].map((client, i) => (
               <div key={i} className="inline-flex items-center gap-2.5 mx-5 shrink-0 group">
-                <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-300">
+                <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary group-hover:shadow-md group-hover:shadow-primary/10 transition-all duration-300">
                   {client.name.charAt(0)}
                 </div>
                 <div className="text-left">

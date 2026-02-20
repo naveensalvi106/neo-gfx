@@ -52,8 +52,9 @@ const PortfolioSection = () => {
 
   return (
     <section id="work" className="py-20 md:py-28 px-4 relative">
-      {/* Ambient glow */}
+      {/* Multiple ambient glows */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none animate-breathe" />
 
       <div ref={revealRef} className="max-w-6xl mx-auto relative z-10">
         <h2 className="reveal text-3xl md:text-5xl font-extrabold tracking-tight text-foreground text-center leading-tight">
@@ -72,10 +73,10 @@ const PortfolioSection = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border relative overflow-hidden ${
                 activeCategory === cat
                   ? "bg-foreground text-background border-foreground shadow-lg shadow-foreground/20 scale-105"
-                  : "bg-card text-foreground border-border hover:border-foreground/30 hover:shadow-md hover:scale-[1.02] active:scale-95"
+                  : "bg-card text-foreground border-border hover:border-foreground/30 hover:shadow-md hover:scale-[1.02] active:scale-95 shine-sweep"
               }`}
             >
               {cat}
@@ -86,7 +87,7 @@ const PortfolioSection = () => {
           </span>
         </div>
 
-        {/* Thumbnail Grid with staggered 3D animation */}
+        {/* Thumbnail Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {thumbnails.map((thumb, i) => (
             <ThumbnailCard key={`${activeCategory}-${i}`} src={thumb} alt={`${activeCategory} thumbnail ${i + 1}`} index={i} />
@@ -98,17 +99,17 @@ const PortfolioSection = () => {
 };
 
 const ThumbnailCard = ({ src, alt, index }: { src: string; alt: string; index: number }) => {
-  const tilt = useTilt3D(5);
+  const tilt = useTilt3D(8);
 
   return (
     <div
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className="rounded-2xl overflow-hidden group cursor-pointer card-3d"
+      className="rounded-2xl overflow-hidden group cursor-pointer card-3d-intense"
       style={{
         transformStyle: "preserve-3d",
-        animation: `fade-in 0.5s ease-out ${index * 0.06}s both`,
+        animation: `slide-up-fade 0.5s ease-out ${index * 0.06}s both`,
       }}
     >
       <div className="relative overflow-hidden rounded-2xl">
@@ -117,10 +118,12 @@ const ThumbnailCard = ({ src, alt, index }: { src: string; alt: string; index: n
           alt={alt}
           className="w-full aspect-video object-cover transition-all duration-500 group-hover:scale-110"
         />
-        {/* Hover overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Multi-layer hover overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         {/* Shine effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+        {/* Border glow */}
+        <div className="absolute inset-0 rounded-2xl ring-1 ring-transparent group-hover:ring-primary/30 transition-all duration-500" />
       </div>
     </div>
   );

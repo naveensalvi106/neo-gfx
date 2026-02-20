@@ -13,13 +13,13 @@ const marqueeWords = [
 ];
 
 const Card3D = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
-  const tilt = useTilt3D(6);
+  const tilt = useTilt3D(10);
   return (
     <div
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className={`card-3d ${className}`}
+      className={`card-3d-intense gradient-border inner-glow ${className}`}
       style={{ transformStyle: "preserve-3d", transition: "transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1)" }}
     >
       {children}
@@ -33,8 +33,9 @@ const PainPoints = () => {
 
   return (
     <section className="py-20 md:py-28 px-4 relative">
-      {/* Ambient glow */}
+      {/* Multiple ambient glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[120px] pointer-events-none animate-breathe" />
 
       <div ref={revealRef} className="max-w-5xl mx-auto relative z-10">
         <h2 className="reveal text-3xl md:text-5xl font-extrabold text-center tracking-tight">
@@ -42,11 +43,14 @@ const PainPoints = () => {
         </h2>
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {/* Card 1: Ghost You */}
-          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden" >
+          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden">
             <div
               onMouseEnter={() => setHoveredCard(0)}
               onMouseLeave={() => setHoveredCard(null)}
             >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500" style={{ transform: hoveredCard === 0 ? "translateZ(30px) scale(1.1)" : "translateZ(0)" }}>
+                <Users className="h-6 w-6 text-primary" />
+              </div>
               <h3 className="text-lg font-bold text-foreground mb-2">Freelance Thumbnail Designers Ghost You</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                 Tired of hiring and dealing with unreliable and unprofessional designers?
@@ -60,12 +64,12 @@ const PainPoints = () => {
                 <div className="relative flex items-center gap-3">
                   <HelpCircle
                     className={`h-10 w-10 text-primary/80 transition-all duration-500 ${
-                      hoveredCard === 0 ? "translate-x-2 scale-110" : "translate-x-6 opacity-50"
+                      hoveredCard === 0 ? "translate-x-2 scale-110 drop-shadow-lg" : "translate-x-6 opacity-50"
                     }`}
                   />
                   <Users
                     className={`h-10 w-10 text-primary/80 transition-all duration-500 ${
-                      hoveredCard === 0 ? "-translate-x-2 scale-110" : "-translate-x-6 opacity-50"
+                      hoveredCard === 0 ? "-translate-x-2 scale-110 drop-shadow-lg" : "-translate-x-6 opacity-50"
                     }`}
                   />
                 </div>
@@ -74,11 +78,14 @@ const PainPoints = () => {
           </Card3D>
 
           {/* Card 2: Boring Thumbnails */}
-          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden" >
+          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden">
             <div
               onMouseEnter={() => setHoveredCard(1)}
               onMouseLeave={() => setHoveredCard(null)}
             >
+              <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-4 transition-all duration-500" style={{ transform: hoveredCard === 1 ? "translateZ(30px) scale(1.1)" : "translateZ(0)" }}>
+                <span className="text-lg">😴</span>
+              </div>
               <h3 className="text-lg font-bold text-foreground mb-2">Have Boring Thumbnails That Just Don't Work</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                 Tired of boring thumbnails that always get lost in the YouTube feed
@@ -86,7 +93,7 @@ const PainPoints = () => {
               <div className="relative h-36 rounded-xl bg-muted/30 overflow-hidden">
                 <div
                   className={`absolute inset-0 transition-transform duration-500 ease-out ${
-                    hoveredCard === 1 ? "-translate-y-8" : "translate-y-0"
+                    hoveredCard === 1 ? "-translate-y-8 scale-105" : "translate-y-0"
                   }`}
                 >
                   <img
@@ -100,16 +107,19 @@ const PainPoints = () => {
                     hoveredCard === 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                 >
-                  <span className="text-xs font-bold text-destructive bg-destructive/10 px-3 py-1 rounded-full backdrop-blur-sm">Low Clicks</span>
-                  <span className="text-xs font-bold text-destructive bg-destructive/10 px-3 py-1 rounded-full backdrop-blur-sm">Less Interesting</span>
+                  <span className="text-xs font-bold text-destructive bg-destructive/10 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">Low Clicks</span>
+                  <span className="text-xs font-bold text-destructive bg-destructive/10 px-3 py-1 rounded-full backdrop-blur-sm shadow-sm">Less Interesting</span>
                 </div>
               </div>
             </div>
           </Card3D>
 
           {/* Card 3: Managing It All */}
-          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden" >
+          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden">
             <div>
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <span className="text-lg">😫</span>
+              </div>
               <h3 className="text-lg font-bold text-foreground mb-2">Tired of Managing It All Yourself</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                 Have no systems in place and producing every thumbnail is a hassle
@@ -125,7 +135,7 @@ const PainPoints = () => {
                       {[...row, ...row].map((word, i) => (
                         <span
                           key={i}
-                          className="inline-block text-xs font-medium text-muted-foreground bg-muted/60 px-3 py-1 rounded-full shrink-0 backdrop-blur-sm"
+                          className="inline-block text-xs font-medium text-muted-foreground bg-muted/60 px-3 py-1 rounded-full shrink-0 backdrop-blur-sm border border-border/50"
                         >
                           {word}
                         </span>
