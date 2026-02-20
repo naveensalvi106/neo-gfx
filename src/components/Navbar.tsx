@@ -1,4 +1,3 @@
-import logo from "@/assets/boostraft-logo.png";
 import { ArrowUpRight } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/919358935758";
@@ -14,7 +13,7 @@ const navLinks = [
 const Navbar = () => {
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-auto">
-      <div className="flex items-center gap-1 rounded-full glass px-2 py-2 shadow-lg shadow-foreground/5 animate-pulse-glow">
+      <div className="flex items-center gap-1 rounded-full glass-strong px-2 py-2 shadow-lg shadow-foreground/5 animate-pulse-glow shine-sweep">
         <a href="#" className="px-3 font-extrabold text-foreground text-sm tracking-tight">
           NEO THUMBNAIL
         </a>
@@ -23,9 +22,10 @@ const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
-              className="px-3.5 py-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 rounded-full hover:bg-primary/5"
+              className="px-3.5 py-2 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 rounded-full hover:bg-primary/5 relative group"
             >
               {link.label}
+              <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-4" />
             </a>
           ))}
         </div>
@@ -33,10 +33,11 @@ const Navbar = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-1 flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-all duration-300 hover:shadow-lg hover:shadow-foreground/20 hover:scale-105 active:scale-95"
+          className="ml-1 flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-all duration-300 hover:shadow-lg hover:shadow-foreground/20 hover:scale-105 active:scale-95 relative overflow-hidden group"
         >
-          Get Started
-          <ArrowUpRight className="h-3.5 w-3.5" />
+          <span className="relative z-10">Get Started</span>
+          <ArrowUpRight className="h-3.5 w-3.5 relative z-10 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <span className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </a>
       </div>
     </nav>

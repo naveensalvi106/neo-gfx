@@ -8,8 +8,9 @@ const FooterSection = () => {
 
   return (
     <footer className="bg-foreground text-background py-16 px-4 relative overflow-hidden">
-      {/* Ambient glow */}
+      {/* Multiple ambient glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none animate-breathe" />
 
       <div ref={revealRef} className="max-w-5xl mx-auto text-center relative z-10">
         <h2 className="reveal text-3xl md:text-4xl font-extrabold mb-4">
@@ -23,7 +24,7 @@ const FooterSection = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-premium inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300"
+            className="btn-premium inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300 animate-glow-ring"
           >
             Get Started Now
             <ArrowRight className="h-4 w-4" />
