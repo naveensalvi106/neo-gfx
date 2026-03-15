@@ -33,13 +33,22 @@ import celeb6 from "@/assets/celeb-6.avif";
 import celeb7 from "@/assets/celeb-7.avif";
 import celeb8 from "@/assets/celeb-8.avif";
 import celeb9 from "@/assets/celeb-9.avif";
+import mystery1 from "@/assets/mystery-1.avif";
+import mystery2 from "@/assets/mystery-2.avif";
+import mystery3 from "@/assets/mystery-3.avif";
+import mystery4 from "@/assets/mystery-4.avif";
+import mystery5 from "@/assets/mystery-5.avif";
+import mystery6 from "@/assets/mystery-6.avif";
+import mystery7 from "@/assets/mystery-7.avif";
+import mystery8 from "@/assets/mystery-8.avif";
+import mystery9 from "@/assets/mystery-9.avif";
 
 const categories = ["Business", "Celebrity", "Mystery", "Space", "Business Stories", "3D"];
 
 const categoryThumbnails: Record<string, string[]> = {
   "Business": [thumb6, thumb9, thumb8, thumb10, thumb19, thumb20, thumb15, thumb16, thumb23],
   "Celebrity": [celeb9, celeb8, celeb7, celeb6, celeb5, celeb4, celeb3, celeb2, celeb1, thumb14, thumb17, thumb18],
-  "Mystery": [thumb14, thumb17, thumb18, thumb21, thumb22, thumb6, thumb8, thumb9, thumb10],
+  "Mystery": [mystery1, mystery2, mystery3, mystery4, mystery5, mystery6, mystery7, mystery8, mystery9],
   "Space": [thumb3, thumb5, thumb7, thumb11, thumb13, thumb15, thumb17, thumb19, thumb21],
   "Business Stories": [thumb2, thumb4, thumb12, thumb14, thumb16, thumb18, thumb20, thumb22, thumb23],
   "3D": [thumb1, thumb6, thumb10, thumb15, thumb20, thumb3, thumb8, thumb13, thumb18],
