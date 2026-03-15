@@ -67,7 +67,7 @@ const categoryThumbnails: Record<string, string[]> = {
   "Business": [thumb6, thumb9, thumb8, thumb10, thumb19, thumb20, thumb15, thumb16, thumb23],
   "Celebrity": [celeb9, celeb8, celeb7, celeb6, celeb5, celeb4, celeb3, celeb2, celeb1, thumb14, thumb17, thumb18],
   "Mystery": [mystery1, mystery2, mystery3, mystery4, mystery5, mystery6, mystery7, mystery8, mystery9],
-  "Space": [thumb3, thumb5, thumb7, thumb11, thumb13, thumb15, thumb17, thumb19, thumb21],
+  "Gaming": [gaming1, gaming2, gaming3, gaming4, gaming5, gaming6, gaming7, gaming8, gaming9],
   "Business Stories": [bizstory1, bizstory2, bizstory3, bizstory4, bizstory5, bizstory6, bizstory7, bizstory8, bizstory9],
   "3D": [td1, td2, td3, td4, td5, td6, td7, td8, td9],
 };
