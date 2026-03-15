@@ -61,7 +61,7 @@ import td7 from "@/assets/3d-7.avif";
 import td8 from "@/assets/3d-8.avif";
 import td9 from "@/assets/3d-9.avif";
 
-const categories = ["Business", "Celebrity", "Mystery", "Space", "Business Stories", "3D"];
+const categories = ["Business", "Celebrity", "Mystery", "Gaming", "Business Stories", "3D"];
 
 const categoryThumbnails: Record<string, string[]> = {
   "Business": [thumb6, thumb9, thumb8, thumb10, thumb19, thumb20, thumb15, thumb16, thumb23],
