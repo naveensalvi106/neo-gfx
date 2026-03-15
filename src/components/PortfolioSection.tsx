@@ -60,6 +60,15 @@ import td6 from "@/assets/3d-6.webp";
 import td7 from "@/assets/3d-7.avif";
 import td8 from "@/assets/3d-8.avif";
 import td9 from "@/assets/3d-9.avif";
+import gaming1 from "@/assets/gaming-1.jpg";
+import gaming2 from "@/assets/gaming-2.jpg";
+import gaming3 from "@/assets/gaming-3.jpg";
+import gaming4 from "@/assets/gaming-4.jpg";
+import gaming5 from "@/assets/gaming-5.jpg";
+import gaming6 from "@/assets/gaming-6.jpg";
+import gaming7 from "@/assets/gaming-7.jpg";
+import gaming8 from "@/assets/gaming-8.jpg";
+import gaming9 from "@/assets/gaming-9.jpg";
 
 const categories = ["Business", "Celebrity", "Mystery", "Gaming", "Business Stories", "3D"];
 
