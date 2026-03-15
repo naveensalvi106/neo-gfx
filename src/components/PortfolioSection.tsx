@@ -51,6 +51,15 @@ import bizstory6 from "@/assets/bizstory-6.avif";
 import bizstory7 from "@/assets/bizstory-7.avif";
 import bizstory8 from "@/assets/bizstory-8.avif";
 import bizstory9 from "@/assets/bizstory-9.avif";
+import td1 from "@/assets/3d-1.webp";
+import td2 from "@/assets/3d-2.avif";
+import td3 from "@/assets/3d-3.webp";
+import td4 from "@/assets/3d-4.webp";
+import td5 from "@/assets/3d-5.avif";
+import td6 from "@/assets/3d-6.webp";
+import td7 from "@/assets/3d-7.avif";
+import td8 from "@/assets/3d-8.avif";
+import td9 from "@/assets/3d-9.avif";
 
 const categories = ["Business", "Celebrity", "Mystery", "Space", "Business Stories", "3D"];
 
@@ -60,7 +69,7 @@ const categoryThumbnails: Record<string, string[]> = {
   "Mystery": [mystery1, mystery2, mystery3, mystery4, mystery5, mystery6, mystery7, mystery8, mystery9],
   "Space": [thumb3, thumb5, thumb7, thumb11, thumb13, thumb15, thumb17, thumb19, thumb21],
   "Business Stories": [bizstory1, bizstory2, bizstory3, bizstory4, bizstory5, bizstory6, bizstory7, bizstory8, bizstory9],
-  "3D": [thumb1, thumb6, thumb10, thumb15, thumb20, thumb3, thumb8, thumb13, thumb18],
+  "3D": [td1, td2, td3, td4, td5, td6, td7, td8, td9],
 };
 
 const PortfolioSection = () => {
