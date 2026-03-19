@@ -13,7 +13,7 @@ const ContactCard = ({ children, href, ...props }: { children: React.ReactNode; 
       ref={tilt.ref as any}
       onMouseMove={tilt.onMouseMove as any}
       onMouseLeave={tilt.onMouseLeave as any}
-      className="bg-card rounded-2xl border border-border p-6 flex flex-col items-center gap-3 card-3d-intense hover:border-primary/40 transition-all duration-300 group gradient-border inner-glow shine-sweep"
+      className="rounded-2xl p-6 flex flex-col items-center gap-3 card-3d-intense hover:border-primary/40 transition-all duration-300 group gradient-border inner-glow shine-sweep glossy-card"
       style={{ transformStyle: "preserve-3d" }}
     >
       {children}
