@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
 };
 
 const TestimonialCard = ({ name, subs, text }: { name: string; subs: string; text: string }) => (
-  <div className="w-[380px] shrink-0 rounded-2xl border border-border bg-background p-6 card-3d hover:border-primary/20 transition-all duration-300 group gradient-border inner-glow shine-sweep">
+  <div className="w-[380px] shrink-0 rounded-2xl p-6 card-3d hover:border-primary/20 transition-all duration-300 group gradient-border inner-glow shine-sweep glossy-card">
     <div className="flex items-center gap-3 mb-4">
       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary group-hover:shadow-md group-hover:shadow-primary/10 transition-all duration-300">
         {name.charAt(0)}
