@@ -46,7 +46,7 @@ const PricingSection = () => {
 
             <div className="reveal" style={{ transitionDelay: "0.3s" }}>
               <ContactCard href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl glossy-icon flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
                   <MessageCircle className="h-6 w-6 text-primary" />
                 </div>
                 <span className="text-sm font-semibold text-foreground">WhatsApp</span>
