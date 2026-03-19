@@ -277,7 +277,7 @@ const BenefitsSection = () => {
             Everything at a single monthly subscription!
           </h2>
           <div className="mt-10 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <BenefitCard3D className="rounded-2xl border border-border bg-card p-7 text-left">
+            <BenefitCard3D className="rounded-2xl p-7 text-left">
               <h3 className="text-lg font-bold text-foreground mb-2">No Long-Term Contracts</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Agencies often tie you down with long contracts. With us, you can pause, cancel or adjust your plan anytime.
