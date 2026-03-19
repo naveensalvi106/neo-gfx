@@ -83,7 +83,7 @@ const HeroSection = () => {
 
       <div ref={revealRef} className="max-w-4xl mx-auto text-center px-4 relative z-10">
         {/* Badge */}
-        <div className="reveal inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-6 border border-primary/20">
+        <div className="reveal inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 glossy-pill">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           <span className="text-xs font-semibold text-primary">Trusted by 62+ YouTubers</span>
         </div>
