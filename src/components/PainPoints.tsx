@@ -83,7 +83,7 @@ const PainPoints = () => {
               onMouseEnter={() => setHoveredCard(1)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-4 transition-all duration-500" style={{ transform: hoveredCard === 1 ? "translateZ(30px) scale(1.1)" : "translateZ(0)" }}>
+              <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4 transition-all duration-500" style={{ transform: hoveredCard === 1 ? "translateZ(30px) scale(1.1)" : "translateZ(0)" }}>
                 <span className="text-lg">😴</span>
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">Have Boring Thumbnails That Just Don't Work</h3>
