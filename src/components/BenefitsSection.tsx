@@ -136,7 +136,7 @@ const BenefitsSection = () => {
         <div className="mt-14 space-y-6">
           {/* Row 1: Truly Unlimited */}
           <div className="reveal rounded-2xl p-7 pb-0 overflow-hidden relative card-3d hover:border-primary/20 transition-colors duration-300 inner-glow glossy-card">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm">
+            <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4">
               <InfinityIcon className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">Truly Unlimited Thumbnail Requests</h3>
