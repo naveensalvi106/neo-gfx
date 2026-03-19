@@ -109,10 +109,10 @@ const PortfolioSection = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border relative overflow-hidden ${
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${
                 activeCategory === cat
-                  ? "bg-foreground text-background border-foreground shadow-lg shadow-foreground/20 scale-105"
-                  : "bg-card text-foreground border-border hover:border-foreground/30 hover:shadow-md hover:scale-[1.02] active:scale-95 shine-sweep"
+                  ? "glossy-pill-active text-primary-foreground scale-105"
+                  : "glossy-pill text-foreground hover:shadow-md hover:scale-[1.02] active:scale-95 shine-sweep"
               }`}
             >
               {cat}
