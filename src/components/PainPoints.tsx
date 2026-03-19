@@ -78,7 +78,7 @@ const PainPoints = () => {
           </Card3D>
 
           {/* Card 2: Boring Thumbnails */}
-          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden">
+          <Card3D className="reveal rounded-2xl p-7 overflow-hidden">
             <div
               onMouseEnter={() => setHoveredCard(1)}
               onMouseLeave={() => setHoveredCard(null)}
