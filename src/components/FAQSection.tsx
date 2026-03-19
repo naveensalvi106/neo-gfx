@@ -20,7 +20,7 @@ const FAQItem = ({ faq, index, isOpen, onToggle }: { faq: typeof faqs[0]; index:
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className="reveal rounded-2xl border border-border bg-card overflow-hidden card-3d hover:border-primary/20 transition-all duration-300 gradient-border inner-glow"
+      className="reveal rounded-2xl overflow-hidden card-3d hover:border-primary/20 transition-all duration-300 gradient-border inner-glow glossy-card"
       style={{ transitionDelay: `${index * 0.05}s`, transformStyle: "preserve-3d" }}
     >
       <button

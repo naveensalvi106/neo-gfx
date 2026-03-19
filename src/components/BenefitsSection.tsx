@@ -111,7 +111,7 @@ const BenefitCard3D = ({ children, className = "", onMouseEnter, onMouseLeave }:
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={() => { tilt.onMouseLeave(); onMouseLeave?.(); }}
       onMouseEnter={onMouseEnter}
-      className={`card-3d-intense gradient-border inner-glow ${className}`}
+      className={`card-3d-intense gradient-border inner-glow glossy-card ${className}`}
       style={{ transformStyle: "preserve-3d" }}
     >
       {children}
@@ -135,8 +135,8 @@ const BenefitsSection = () => {
 
         <div className="mt-14 space-y-6">
           {/* Row 1: Truly Unlimited */}
-          <div className="reveal rounded-2xl border border-border bg-card p-7 pb-0 overflow-hidden relative card-3d hover:border-primary/20 transition-colors duration-300 inner-glow">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm">
+          <div className="reveal rounded-2xl p-7 pb-0 overflow-hidden relative card-3d hover:border-primary/20 transition-colors duration-300 inner-glow glossy-card">
+            <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4">
               <InfinityIcon className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">Truly Unlimited Thumbnail Requests</h3>
@@ -162,11 +162,11 @@ const BenefitsSection = () => {
           {/* Row 2 */}
           <div className="grid md:grid-cols-2 gap-6">
             <BenefitCard3D
-              className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden"
+              className="reveal rounded-2xl p-7 overflow-hidden"
               onMouseEnter={() => setHoveredCard("team")}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm transition-all duration-500" style={{ transform: hoveredCard === "team" ? "translateZ(20px)" : "translateZ(0)" }}>
+              <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4 transition-all duration-500" style={{ transform: hoveredCard === "team" ? "translateZ(20px)" : "translateZ(0)" }}>
                 <Users className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Dedicated Expert Team 24/7</h3>
@@ -206,8 +206,8 @@ const BenefitsSection = () => {
             </BenefitCard3D>
 
             <div className="flex flex-col gap-6">
-              <BenefitCard3D className="reveal rounded-2xl border border-border bg-card p-7">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm">
+              <BenefitCard3D className="reveal rounded-2xl p-7">
+                <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4">
                   <TrendingUp className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">Boost Your CTR up to 6.8%</h3>
@@ -215,8 +215,8 @@ const BenefitsSection = () => {
                   Our clients have seen an average 6.8% boost in CTR with our psychology-driven thumbnails.
                 </p>
               </BenefitCard3D>
-              <BenefitCard3D className="reveal rounded-2xl border border-border bg-card p-7">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm">
+              <BenefitCard3D className="reveal rounded-2xl p-7">
+                <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4">
                   <MessageSquare className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">Direct Communication & Smooth Workflows</h3>
@@ -230,8 +230,8 @@ const BenefitsSection = () => {
           {/* Row 3 */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex flex-col gap-6">
-              <BenefitCard3D className="reveal rounded-2xl border border-border bg-card p-7">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm">
+              <BenefitCard3D className="reveal rounded-2xl p-7">
+                <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4">
                   <RefreshCw className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">Auto Rehashing</h3>
@@ -239,8 +239,8 @@ const BenefitsSection = () => {
                   Our team of vigilant strategists constantly monitors your CTR and rehashes the thumbnails that aren't performing on autopilot, so you can focus on scaling.
                 </p>
               </BenefitCard3D>
-              <BenefitCard3D className="reveal rounded-2xl border border-border bg-card p-7">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm">
+              <BenefitCard3D className="reveal rounded-2xl p-7">
+                <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4">
                   <Trophy className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">No.1 in YouTube Thumbnails</h3>
@@ -251,11 +251,11 @@ const BenefitsSection = () => {
             </div>
 
             <BenefitCard3D
-              className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden"
+              className="reveal rounded-2xl p-7 overflow-hidden"
               onMouseEnter={() => setHoveredCard("monitor")}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm transition-all duration-500" style={{ transform: hoveredCard === "monitor" ? "translateZ(20px)" : "translateZ(0)" }}>
+              <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4 transition-all duration-500" style={{ transform: hoveredCard === "monitor" ? "translateZ(20px)" : "translateZ(0)" }}>
                 <MonitorCheck className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2">Live Monitoring</h3>
@@ -277,13 +277,13 @@ const BenefitsSection = () => {
             Everything at a single monthly subscription!
           </h2>
           <div className="mt-10 grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <BenefitCard3D className="rounded-2xl border border-border bg-card p-7 text-left">
+            <BenefitCard3D className="rounded-2xl p-7 text-left">
               <h3 className="text-lg font-bold text-foreground mb-2">No Long-Term Contracts</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Agencies often tie you down with long contracts. With us, you can pause, cancel or adjust your plan anytime.
               </p>
             </BenefitCard3D>
-            <BenefitCard3D className="rounded-2xl border border-border bg-card p-7 text-left">
+            <BenefitCard3D className="rounded-2xl p-7 text-left">
               <h3 className="text-lg font-bold text-foreground mb-2">No Lack of Flexibility</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 With us, you can get instant updates and changes with your subscription, no more wasting time on contract modifications.

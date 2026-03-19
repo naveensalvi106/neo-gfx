@@ -83,7 +83,7 @@ const HeroSection = () => {
 
       <div ref={revealRef} className="max-w-4xl mx-auto text-center px-4 relative z-10">
         {/* Badge */}
-        <div className="reveal inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-6 border border-primary/20">
+        <div className="reveal inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 glossy-pill">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           <span className="text-xs font-semibold text-primary">Trusted by 62+ YouTubers</span>
         </div>
@@ -127,7 +127,7 @@ const HeroSection = () => {
           <div className="flex marquee whitespace-nowrap">
             {[...trustedBy, ...trustedBy].map((client, i) => (
               <div key={i} className="inline-flex items-center gap-2.5 mx-5 shrink-0 group">
-                <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary group-hover:shadow-md group-hover:shadow-primary/10 transition-all duration-300">
+                <div className="w-9 h-9 rounded-full glossy-icon flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:text-primary group-hover:shadow-md group-hover:shadow-primary/10 transition-all duration-300">
                   {client.name.charAt(0)}
                 </div>
                 <div className="text-left">
