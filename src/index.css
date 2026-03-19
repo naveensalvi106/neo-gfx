@@ -52,6 +52,13 @@
     --glass-bg: hsl(0 0% 100% / 0.7);
     --glass-border: hsl(0 0% 100% / 0.3);
     --glass-bg-strong: hsl(0 0% 100% / 0.85);
+    
+    /* Glossy bevel tokens */
+    --glossy-bg: linear-gradient(145deg, hsl(0 0% 100% / 0.85), hsl(0 0% 100% / 0.45));
+    --glossy-border-top: hsl(0 0% 100% / 0.8);
+    --glossy-border-bottom: hsl(230 25% 10% / 0.08);
+    --glossy-shadow: 0 1px 0 0 hsl(0 0% 100% / 0.6) inset, 0 -1px 0 0 hsl(230 25% 10% / 0.05) inset, 0 8px 24px -4px hsl(230 25% 10% / 0.1), 0 2px 8px -2px hsl(230 25% 10% / 0.06);
+    --glossy-shadow-hover: 0 1px 0 0 hsl(0 0% 100% / 0.8) inset, 0 -1px 0 0 hsl(230 25% 10% / 0.08) inset, 0 16px 40px -8px hsl(234 85% 65% / 0.15), 0 4px 12px -2px hsl(230 25% 10% / 0.08);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
