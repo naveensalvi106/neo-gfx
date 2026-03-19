@@ -111,7 +111,7 @@ const BenefitCard3D = ({ children, className = "", onMouseEnter, onMouseLeave }:
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={() => { tilt.onMouseLeave(); onMouseLeave?.(); }}
       onMouseEnter={onMouseEnter}
-      className={`card-3d-intense gradient-border inner-glow ${className}`}
+      className={`card-3d-intense gradient-border inner-glow glossy-card ${className}`}
       style={{ transformStyle: "preserve-3d" }}
     >
       {children}
