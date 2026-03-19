@@ -115,7 +115,7 @@ const PainPoints = () => {
           </Card3D>
 
           {/* Card 3: Managing It All */}
-          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden">
+          <Card3D className="reveal rounded-2xl p-7 overflow-hidden">
             <div>
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                 <span className="text-lg">😫</span>
