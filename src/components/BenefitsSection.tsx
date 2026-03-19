@@ -251,7 +251,7 @@ const BenefitsSection = () => {
             </div>
 
             <BenefitCard3D
-              className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden"
+              className="reveal rounded-2xl p-7 overflow-hidden"
               onMouseEnter={() => setHoveredCard("monitor")}
               onMouseLeave={() => setHoveredCard(null)}
             >
