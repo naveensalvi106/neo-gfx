@@ -19,7 +19,7 @@ const Card3D = ({ children, className = "" }: { children: React.ReactNode; class
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className={`card-3d-intense gradient-border inner-glow ${className}`}
+      className={`card-3d-intense gradient-border inner-glow glossy-card ${className}`}
       style={{ transformStyle: "preserve-3d", transition: "transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1)" }}
     >
       {children}
