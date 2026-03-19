@@ -43,7 +43,7 @@ const PainPoints = () => {
         </h2>
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {/* Card 1: Ghost You */}
-          <Card3D className="reveal rounded-2xl border border-border bg-card p-7 overflow-hidden">
+          <Card3D className="reveal rounded-2xl p-7 overflow-hidden">
             <div
               onMouseEnter={() => setHoveredCard(0)}
               onMouseLeave={() => setHoveredCard(null)}
