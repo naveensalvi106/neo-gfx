@@ -48,7 +48,7 @@ const PainPoints = () => {
               onMouseEnter={() => setHoveredCard(0)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 transition-all duration-500" style={{ transform: hoveredCard === 0 ? "translateZ(30px) scale(1.1)" : "translateZ(0)" }}>
+              <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4 transition-all duration-500" style={{ transform: hoveredCard === 0 ? "translateZ(30px) scale(1.1)" : "translateZ(0)" }}>
                 <Users className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">Freelance Thumbnail Designers Ghost You</h3>
