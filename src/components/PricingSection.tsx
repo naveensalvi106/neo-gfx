@@ -36,7 +36,7 @@ const PricingSection = () => {
           <div className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
             <div className="reveal" style={{ transitionDelay: "0.2s" }}>
               <ContactCard href="mailto:naveensalviai@gmail.com">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl glossy-icon flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <span className="text-sm font-semibold text-foreground">Email</span>
