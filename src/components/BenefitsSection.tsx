@@ -215,8 +215,8 @@ const BenefitsSection = () => {
                   Our clients have seen an average 6.8% boost in CTR with our psychology-driven thumbnails.
                 </p>
               </BenefitCard3D>
-              <BenefitCard3D className="reveal rounded-2xl border border-border bg-card p-7">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 shadow-sm">
+              <BenefitCard3D className="reveal rounded-2xl p-7">
+                <div className="w-12 h-12 rounded-xl glossy-icon flex items-center justify-center mb-4">
                   <MessageSquare className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">Direct Communication & Smooth Workflows</h3>
