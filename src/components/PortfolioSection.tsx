@@ -118,7 +118,7 @@ const PortfolioSection = () => {
               {cat}
             </button>
           ))}
-          <span className="px-5 py-2.5 rounded-full text-sm font-medium bg-card text-foreground border border-border">
+          <span className="px-5 py-2.5 rounded-full text-sm font-medium glossy-pill text-foreground">
             +6 more
           </span>
         </div>
