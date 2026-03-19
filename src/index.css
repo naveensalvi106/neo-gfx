@@ -315,6 +315,51 @@
     z-index: 1;
   }
 
+  /* Glossy bevel card */
+  .glossy-card {
+    background: var(--glossy-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid hsl(0 0% 100% / 0.5);
+    border-top-color: var(--glossy-border-top);
+    border-bottom-color: var(--glossy-border-bottom);
+    box-shadow: var(--glossy-shadow);
+    transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+  }
+
+  .glossy-card:hover {
+    box-shadow: var(--glossy-shadow-hover);
+    border-color: hsl(0 0% 100% / 0.7);
+    border-top-color: hsl(0 0% 100% / 0.9);
+  }
+
+  /* Glossy pill / tab button */
+  .glossy-pill {
+    background: linear-gradient(145deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.5));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(0 0% 100% / 0.6);
+    border-top-color: hsl(0 0% 100% / 0.9);
+    border-bottom-color: hsl(230 25% 10% / 0.06);
+    box-shadow: 0 1px 0 0 hsl(0 0% 100% / 0.5) inset, 0 -1px 0 0 hsl(230 25% 10% / 0.04) inset, 0 4px 12px -2px hsl(230 25% 10% / 0.08);
+  }
+
+  .glossy-pill-active {
+    background: linear-gradient(145deg, hsl(234 85% 68%), hsl(234 85% 58%));
+    border: 1px solid hsl(234 85% 75% / 0.5);
+    border-top-color: hsl(234 85% 80% / 0.7);
+    border-bottom-color: hsl(234 85% 40% / 0.3);
+    box-shadow: 0 1px 0 0 hsl(234 85% 80% / 0.4) inset, 0 -1px 0 0 hsl(234 85% 40% / 0.2) inset, 0 8px 20px -4px hsl(234 85% 65% / 0.3);
+  }
+
+  /* Glossy icon container */
+  .glossy-icon {
+    background: linear-gradient(145deg, hsl(234 85% 65% / 0.15), hsl(234 85% 65% / 0.05));
+    border: 1px solid hsl(234 85% 65% / 0.15);
+    border-top-color: hsl(0 0% 100% / 0.4);
+    box-shadow: 0 1px 0 0 hsl(0 0% 100% / 0.3) inset, 0 2px 8px -2px hsl(234 85% 65% / 0.15);
+  }
+
   /* Depth layers */
   .depth-layer {
     transform: translateZ(0);
