@@ -142,7 +142,7 @@ const ThumbnailCard = ({ src, alt, index }: { src: string; alt: string; index: n
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className="rounded-2xl overflow-hidden group cursor-pointer card-3d-intense"
+      className="rounded-2xl overflow-hidden group cursor-pointer card-3d-intense glossy-card"
       style={{
         transformStyle: "preserve-3d",
         animation: `slide-up-fade 0.5s ease-out ${index * 0.06}s both`,

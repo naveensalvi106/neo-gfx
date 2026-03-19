@@ -127,7 +127,7 @@ const HeroSection = () => {
           <div className="flex marquee whitespace-nowrap">
             {[...trustedBy, ...trustedBy].map((client, i) => (
               <div key={i} className="inline-flex items-center gap-2.5 mx-5 shrink-0 group">
-                <div className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary group-hover:shadow-md group-hover:shadow-primary/10 transition-all duration-300">
+                <div className="w-9 h-9 rounded-full glossy-icon flex items-center justify-center text-xs font-bold text-muted-foreground group-hover:text-primary group-hover:shadow-md group-hover:shadow-primary/10 transition-all duration-300">
                   {client.name.charAt(0)}
                 </div>
                 <div className="text-left">

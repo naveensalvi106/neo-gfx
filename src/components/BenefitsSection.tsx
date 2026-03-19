@@ -283,7 +283,7 @@ const BenefitsSection = () => {
                 Agencies often tie you down with long contracts. With us, you can pause, cancel or adjust your plan anytime.
               </p>
             </BenefitCard3D>
-            <BenefitCard3D className="rounded-2xl border border-border bg-card p-7 text-left">
+            <BenefitCard3D className="rounded-2xl p-7 text-left">
               <h3 className="text-lg font-bold text-foreground mb-2">No Lack of Flexibility</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 With us, you can get instant updates and changes with your subscription, no more wasting time on contract modifications.
